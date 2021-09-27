@@ -3,12 +3,13 @@ def jogar():
     print("Bem vindo ao jogo da Forca!")
     print("*********************************")
 
-    palavra_secreta = "banana".upper()
-    letras_acertadas = ["_", "_", "_", "_", "_", "_"] # 6 espaços
+    palavra_secreta = "maça".upper()
+    letras_acertadas = ["_" for letra in palavra_secreta]
 
     enforcou = False
     acertou = False
     erros = 0
+    tentativas = len(palavra_secreta)
 
     print(letras_acertadas)
 
@@ -22,19 +23,19 @@ def jogar():
                 if(chute == letra):
                     letras_acertadas[index] = letra
                 index += 1
-
         else:
             erros += 1
+            tentativas -= erros
+            print("Você erros! Faltam {} tentativas.".format(tentativas))
 
-        enforcou = erros == 6
+        enforcou = erros == tentativas
         acertou = "_" not in letras_acertadas
         print(letras_acertadas)
 
-    if(acertou):
-        print("Você ganhou!")
+    if (acertou):
+        print("Você ganhou!!")
     else:
-        print("Você perdeu!")
-
+        print("Você perdeu!!")
     print("Fim do Jogo!")
 
 if(__name__ == "__main__"):
