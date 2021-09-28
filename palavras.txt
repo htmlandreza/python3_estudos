@@ -1,1 +1,4 @@
 banana
+maça
+morango
+melancia
